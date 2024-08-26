@@ -1,0 +1,148 @@
+{
+  "_id": "66a6fe596f00c5c3c5619d26",
+  "imageConfig": [
+    {
+      "SlideNo": 0,
+      "Img.URL": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+      "Img.left": "0",
+      "Img.top": "0",
+      "Img.Z": "1",
+      "Img.width": "30vw",
+      "Img.Height": "80vh",
+      "start": "00:00:00,000",
+      "end": "00:00:02,000",
+      "PostTransition": "Fadeout"
+    },
+    {
+      "SlideNo": 1,
+      "Img.URL": "https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g",
+      "Img.left": "0",
+      "Img.top": "0",
+      "Img.Z": "2",
+      "Img.width": "30vw",
+      "Img.Height": "80vh",
+      "start": "00:00:02,000",
+      "end": "00:00:04,000",
+      "PostTransition": "Fadeout"
+    },
+    {
+      "SlideNo": 2,
+      "Img.URL": "https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I",
+      "Img.left": "Img.left",
+      "Img.top": "Img.top",
+      "Img.Z": "Img.Z",
+      "Img.width": "30vw",
+      "Img.Height": "80vh",
+      "start": "00:00:04,000",
+      "end": "00:00:06,000",
+      "PostTransition": "PostTransition"
+    },
+    {
+      "SlideNo": 3,
+      "Img.URL": "https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
+      "Img.left": "0",
+      "Img.top": "0",
+      "Img.Z": "3",
+      "Img.width": "30vw",
+      "Img.Height": "80vh",
+      "start": "00:00:06,000",
+      "end": "00:00:08,000",
+      "PostTransition": "Fadeout"
+    }
+  ],
+
+  "srtjson": [
+    {
+      "index": 1,
+      "start": "00:00:00,160",
+      "end": "00:00:00,480",
+      "text": "[speaker 0] Ancient"
+    },
+    {
+      "index": 2,
+      "start": "00:00:00,480",
+      "end": "00:00:00,880",
+      "text": "Rome"
+    },
+    {
+      "index": 3,
+      "start": "00:00:00,880",
+      "end": "00:00:01,380",
+      "text": "fell,"
+    },
+    {
+      "index": 4,
+      "start": "00:00:01,440",
+      "end": "00:00:01,940",
+      "text": "barbarians"
+    },
+    {
+      "index": 5,
+      "start": "00:00:02,240",
+      "end": "00:00:02,740",
+      "text": "invaded,"
+    },
+    {
+      "index": 6,
+      "start": "00:00:03,040",
+      "end": "00:00:03,540",
+      "text": "empires"
+    },
+    {
+      "index": 7,
+      "start": "00:00:03,680",
+      "end": "00:00:04,180",
+      "text": "crumble,"
+    },
+    {
+      "index": 8,
+      "start": "00:00:04,480",
+      "end": "00:00:04,800",
+      "text": "dark"
+    },
+    {
+      "index": 9,
+      "start": "00:00:04,800",
+      "end": "00:00:05,280",
+      "text": "ages"
+    },
+    {
+      "index": 10,
+      "start": "00:00:05,280",
+      "end": "00:00:05,760",
+      "text": "descended"
+    },
+    {
+      "index": 11,
+      "start": "00:00:05,760",
+      "end": "00:00:06,080",
+      "text": "upon"
+    },
+    {
+      "index": 12,
+      "start": "00:00:06,080",
+      "end": "00:00:06,580",
+      "text": "Europe."
+    }
+  ],
+
+  "srtCss": {
+    "position": "absolute",
+    "bottom": "15%",
+    "left": "45%",
+    "transform": "translate(-50%, 50%) rotate(-10deg)",
+    "backgroundColor": "PaleTurquoise",
+    "color": "black",
+    "font-family": "HelveticaLucida Handwriting",
+    "fontWeight": "bolder",
+    "fontSize": "2.5em",
+    "borderRadius": "10px",
+    "text-shadow": "2px 2px 5px red",
+    "border-style": "outset",
+    "maxWidth": "80%",
+    "whiteSpace": "pre-wrap",
+    "lineHeight": "1.4",
+    "animation": "moveSubtitle 4s ease-in-out",
+    "zIndex": "10"
+  }
+}

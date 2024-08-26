@@ -1,0 +1,96 @@
+.container {
+  position: absolute;
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.video-like-slideshow {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 10%;
+  left: 0;
+  right: 0;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  display: block;
+  margin: 0 auto;
+  animation: shake 2.00s linear infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  8% {
+    transform: rotate(0.5deg) scale(1.05);
+  }
+  16% {
+    transform: rotate(1deg) scale(1.05);
+  }
+  24% {
+    transform: rotate(1.5deg) scale(1.05);
+  }
+  32% {
+    transform: rotate(1deg) scale(1.05);
+  }
+  40% {
+    transform: rotate(0.5deg) scale(1.05);
+  }
+  48% {
+    transform: rotate(0deg) scale(1);
+  }
+  56% {
+    transform: rotate(-0.5deg) scale(1.05);
+  }
+  64% {
+    transform: rotate(-1deg) scale(1.05);
+  }
+  72% {
+    transform: rotate(-1.5deg) scale(1.05);
+  }
+  80% {
+    transform: rotate(-1deg) scale(1);
+  }
+  88% {
+    transform: rotate(-0.5deg) scale(1);
+  }
+  96% {
+    transform: translateX(-200%) rotate(10deg) scale(1.2); /* Swipe effect */
+  }
+}
+@media (max-width: 768px) {
+  .video-like-slideshow {
+    height: 60vh;
+  }
+
+  .subtitle {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-like-slideshow {
+    height: 50vh;
+  }
+}

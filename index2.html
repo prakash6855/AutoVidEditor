@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Animated Slideshow</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        #slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #subtitleContainer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* This will cover the entire container */
+            object-position: center;
+            /* Center the image within the container */
+        }
+
+        .timer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            z-index: 20;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideshow-container">
+        <div id="subtitleContainer"></div>
+        <div id="loading">Loading images... <span id="progress">0%</span></div>
+    </div>
+    <div id="configData"></div>
+    <div id="debug"></div>
+
+    <script>
+        let slideshowData = {
+            "_id": "66a6fe596f00c5c3c5619d26",
+            "imageConfig": [
+                {
+                    "SlideNo": 1,
+                    "Img.URL": "https://picsum.photos/200/300",
+                    "Img.left": "0",
+                    "Img.top": "0",
+                    "Img.Z": "1",
+                    "Img.width": "100%",
+                    "Img.Height": "100%",
+                    "start": "00:00:00,160",
+                    "end": "00:00:01,940",
+                    "PostTransition": "Fadeout"
+                },
+                {
+                    "SlideNo": 2,
+                    "Img.URL": "https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI",
+                    "Img.left": "0",
+                    "Img.top": "0",
+                    "Img.Z": "2",
+                    "Img.width": "100%",
+                    "Img.Height": "100%",
+                    "start": "00:00:02,240",
+                    "end": "00:00:04,180",
+                    "PostTransition": "Fadeout"
+                },
+                {
+                    "SlideNo": 3,
+                    "Img.URL": "https://picsum.photos/200/300",
+                    "Img.left": "Img.left",
+                    "Img.top": "Img.top",
+                    "Img.Z": "Img.Z",
+                    "Img.width": "Img.width",
+                    "Img.Height": "Img.Height",
+                    "start": "00:00:04,480",
+                    "end": "00:00:06,080",
+                    "PostTransition": "PostTransition"
+                },
+                {
+                    "SlideNo": 4,
+                    "Img.URL": "https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI",
+                    "Img.left": "0",
+                    "Img.top": "0",
+                    "Img.Z": "3",
+                    "Img.width": "100%",
+                    "Img.Height": "100%",
+                    "start": "00:00:06,080",
+                    "end": "00:00:06,580",
+                    "PostTransition": "Fadeout"
+                }
+            ],
+            "srtjson": [
+                {
+                    "index": 1,
+                    "start": "00:00:00,160",
+                    "end": "00:00:00,480",
+                    "text": "[speaker 0] Ancient"
+                },
+                {
+                    "index": 2,
+                    "start": "00:00:00,480",
+                    "end": "00:00:00,880",
+                    "text": "Rome"
+                },
+                {
+                    "index": 3,
+                    "start": "00:00:00,880",
+                    "end": "00:00:01,380",
+                    "text": "fell,"
+                },
+                {
+                    "index": 4,
+                    "start": "00:00:01,440",
+                    "end": "00:00:01,940",
+                    "text": "barbarians"
+                },
+                {
+                    "index": 5,
+                    "start": "00:00:02,240",
+                    "end": "00:00:02,740",
+                    "text": "invaded,"
+                },
+                {
+                    "index": 6,
+                    "start": "00:00:03,040",
+                    "end": "00:00:03,540",
+                    "text": "empires"
+                },
+                {
+                    "index": 7,
+                    "start": "00:00:03,680",
+                    "end": "00:00:04,180",
+                    "text": "crumble,"
+                },
+                {
+                    "index": 8,
+                    "start": "00:00:04,480",
+                    "end": "00:00:04,800",
+                    "text": "dark"
+                },
+                {
+                    "index": 9,
+                    "start": "00:00:04,800",
+                    "end": "00:00:05,280",
+                    "text": "ages"
+                },
+                {
+                    "index": 10,
+                    "start": "00:00:05,280",
+                    "end": "00:00:05,760",
+                    "text": "descended"
+                },
+                {
+                    "index": 11,
+                    "start": "00:00:05,760",
+                    "end": "00:00:06,080",
+                    "text": "upon"
+                },
+                {
+                    "index": 12,
+                    "start": "00:00:06,080",
+                    "end": "00:00:06,580",
+                    "text": "Europe."
+                }
+            ],
+            "srtCss": {
+                "position": "absolute",
+                "bottom": "50px",
+                "left": "50%",
+                "transform": "translateX(-50%)",
+                "text-align": "center",
+                "z-index": "10",
+                "color": "black",
+                "background-color": "yellow",
+                "padding": "10px 20px",
+                "border-radius": "20px",
+                "font-size": "24px",
+                "font-weight": "bold",
+                "max-width": "80%"
+            }
+        };
+        function createSlideElement(slide) {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'slide';
+
+            const img = document.createElement('img');
+            img.src = slide['Img.URL'];
+            img.alt = "Slide image";
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '100%';
+            img.style.objectFit = 'contain';
+            const timerDiv = document.createElement('div');
+            timerDiv.className = 'timer';
+
+            slideDiv.appendChild(img);
+            slideDiv.appendChild(timerDiv);
+
+            return slideDiv;
+        }
+
+        function parseTime(timeStr) {
+            if (!timeStr) return 0;
+            const match = timeStr.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+            if (!match) {
+                console.warn(`Invalid time format: ${timeStr}`);
+                return 0;
+            }
+            const [, hours, min, sec, ms] = match;
+            return parseInt(hours) * 3600 + parseInt(min) * 60 + parseInt(sec) + parseInt(ms) / 1000;
+        }
+
+        function cleanSubtitleText(text) {
+            return text.replace(/\[speaker \d+\]\s*/g, '').trim();
+        }
+
+        function showSlide(slideElement, slide, subtitles, duration, isLastSlide) {
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            slideElement.classList.add('active');
+
+            const timerDiv = slideElement.querySelector('.timer');
+            const container = document.getElementById('subtitleContainer');
+
+            let startTime = performance.now();
+            let remainingTime = Math.ceil(duration);
+            let lastSubtitle = null;
+
+            function updateSubtitle() {
+                const currentTime = (performance.now() - startTime) / 1000 + parseTime(slide.start);
+                const currentSubtitle = subtitles.find(s =>
+                    currentTime >= parseTime(s.start) && currentTime < parseTime(s.end)
+                );
+
+                if (currentSubtitle) {
+                    container.textContent = cleanSubtitleText(currentSubtitle.text);
+                    lastSubtitle = currentSubtitle;
+                } else if (lastSubtitle && currentTime < parseTime(lastSubtitle.end)) {
+                    container.textContent = cleanSubtitleText(lastSubtitle.text);
+                } else {
+                    container.textContent = '';
+                }
+
+                if ((performance.now() - startTime) / 1000 < duration) {
+                    requestAnimationFrame(updateSubtitle);
+                }
+            }
+
+            const timerInterval = setInterval(() => {
+                timerDiv.textContent = `${remainingTime}s`;
+                remainingTime--;
+                if (remainingTime < 0) {
+                    clearInterval(timerInterval);
+                }
+            }, 1000);
+
+            updateSubtitle();
+
+            if (!isLastSlide) {
+                setTimeout(() => {
+                    slideElement.classList.remove('active');
+                    clearInterval(timerInterval);
+                    container.textContent = '';
+                }, duration * 1000);
+            }
+        }
+
+        function preloadImages(imageUrls) {
+            return new Promise((resolve, reject) => {
+                let loadedCount = 0;
+                const totalImages = imageUrls.length;
+                const loadingElement = document.getElementById('loading');
+                const progressElement = document.getElementById('progress');
+
+                imageUrls.forEach(url => {
+                    const img = new Image();
+                    img.onload = img.onerror = () => {
+                        loadedCount++;
+                        const progress = Math.round((loadedCount / totalImages) * 100);
+                        progressElement.textContent = `${progress}%`;
+                        if (loadedCount === totalImages) {
+                            loadingElement.style.display = 'none';
+                            resolve();
+                        }
+                    };
+                    img.src = url;
+                });
+            });
+        }
+
+        async function startSlideshow() {
+            try {
+
+                console.log('Preloading images...');
+
+                const imageUrls = slideshowData.imageConfig.map(slide => slide['Img.URL']);
+                await preloadImages(imageUrls);
+                console.log('Images preloaded successfully');
+                console.log('ReadyToRecord');
+                console.log('Starting slideshow...');
+                const container = document.getElementById('slideshow-container');
+                let totalDuration = 0;
+
+                slideshowData.imageConfig.forEach((slide, index) => {
+                    if (!slide.start || !slide.end) {
+                        console.warn(`Slide ${index + 1} has invalid start or end time`);
+                        return;
+                    }
+
+                    const slideElement = createSlideElement(slide);
+                    container.appendChild(slideElement);
+
+                    const slideSubtitles = slideshowData.srtjson.filter(sub =>
+                        parseTime(sub.end) > parseTime(slide.start) &&
+                        parseTime(sub.start) < parseTime(slide.end)
+                    );
+                    const duration = parseTime(slide.end) - parseTime(slide.start);
+                    const isLastSlide = index === slideshowData.imageConfig.length - 1;
+                    if (duration > 0) {
+                        setTimeout(() => {
+                            console.log(`Starting slide ${index + 1}`);
+                            showSlide(slideElement, slide, slideSubtitles, duration, isLastSlide);
+                        }, totalDuration * 1000);
+
+                        setTimeout(() => {
+                            console.log(`Finished slide ${index + 1}`);
+                        }, (totalDuration + duration) * 1000);
+
+                        totalDuration += duration;
+                    } else {
+                        console.warn(`Slide ${index + 1} has invalid duration`);
+                    }
+                });
+
+                if (totalDuration > 0) {
+                    setTimeout(() => {
+                        console.log('Slideshow completed');
+                    }, totalDuration * 1000);
+                } else {
+                    console.error('No valid slides found');
+                }
+
+                // Apply srtCss to subtitleContainer
+                const subtitleContainer = document.getElementById('subtitleContainer');
+                Object.assign(subtitleContainer.style, slideshowData.srtCss);
+
+            } catch (error) {
+                console.error('Error in slideshow:', error);
+                document.getElementById('configData').textContent = 'Error in slideshow.';
+            }
+        }
+
+        window.onload = startSlideshow;
+    </script>
+</body>
+
+</html>
