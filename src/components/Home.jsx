@@ -10,6 +10,7 @@ import {
   defaultImageConfigData,
   defaultSrtjsonData,
   defaultSrtCssData,
+  srtCssLabel,
 } from "../data/csv"; // Adjust the path based on where your csv.js file is located
 
 const Home = () => {
@@ -23,12 +24,17 @@ const Home = () => {
     const data = {
       imageConfig: photos,
       srtjson: srtLabels,
-      srtCss: cssOptions,
+      srtCss: srtCssLabel.reduce((acc, label, index) => {
+        if (cssOptions[index]) {
+          acc[label] = cssOptions[index].value;
+        }
+        return acc;
+      }, {}),
     };
     console.log(data);
 
     // Navigate to /VideoPlayer and pass the data as state
-    navigate("/VideoPlayer", { state: data });
+    navigate("/VideoPlayer", { state: { slideshowData: data } });
   };
 
   return (

@@ -88,8 +88,8 @@ const VideoPlayer = () => {
             {slideshowData.imageConfig.map((slide, index) => {
               // Calculate border size from API
               const borderSize = parseInt(slide["Img.BorderSize"]) || 0;
-              const slideWidth = `calc(1.025 * (${borderSize}px + ${slide["Img.width"]}))`;
-              const slideHeight = `calc(1.025 * (${borderSize}px + ${slide["Img.Height"]}))`;
+              const slideWidth = `calc(1.025 * (${borderSize}px + ${slide["Img"]["width"]}))`;
+              const slideHeight = `calc(1.025 * (${borderSize}px +  ${slide["Img"]["Height"]}))`;
 
               return (
                 <div
@@ -104,11 +104,11 @@ const VideoPlayer = () => {
                   }}
                 >
                   <img
-                    src={slide["Img.URL"]}
+                    src={slide["Img"]["URL"]}
                     alt={`Slide ${slide.SlideNo}`}
                     style={{
-                      width: slide["Img.width"],
-                      height: slide["Img.Height"],
+                      width: slide["Img"]["width"],
+                      height: slide["Img"]["Height"],
                       border: `${borderSize}px solid red`,
                     }}
                   />

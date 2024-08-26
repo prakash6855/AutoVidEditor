@@ -14,7 +14,7 @@ const Subtitle = ({ subtitleIndex, word, slideshowData }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      style={slideshowData.srtCss[0]}
+      style={slideshowData.srtCss}
     >
       <motion.span key={subtitleIndex}>{cleanedWord} </motion.span>
     </motion.div>
