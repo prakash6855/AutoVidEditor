@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 const Subtitle = ({ subtitleIndex, word, slideshowData }) => {
-  const cleanedWord = useMemo(
-    () => word.replace(/\[speaker \d+\]\s*/g, "").trim(),
-    [word]
-  );
+  const cleanedWord = useMemo(() => {
+    if (!word) return ""; // Return empty string if word is empty
+    return word.replace(/\[speaker \d+\]\s*/g, "").trim();
+  }, [word]);
 
   return (
     <motion.div

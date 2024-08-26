@@ -10,68 +10,66 @@ export const imageConfigLabel = [
   "end",
   "PostTransition",
 ];
+
 export const defaultImageConfigData = [
-  [
-    { value: "1" },
-    {
-      value:
-        "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+  {
+    SlideNo: "1",
+    Img: {
+      URL: "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+      left: "0px",
+      top: "0px",
+      Z: "1",
+      width: "30vw",
+      Height: "80vh",
     },
-    { value: "0px" },
-    { value: "0px" },
-    { value: "1" },
-    { value: "30vw" },
-    { value: "80vh" },
-    { value: "00:00:00,000" },
-    { value: "00:00:02,000" },
-    { value: "Fadeout" },
-  ],
-  [
-    { value: "2" },
-    {
-      value:
-        "https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g",
+    start: "00:00:00,000",
+    end: "00:00:02,000",
+    PostTransition: "Fadeout",
+  },
+  {
+    SlideNo: "2",
+    Img: {
+      URL: "https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g",
+      left: "0px",
+      top: "0px",
+      Z: "2",
+      width: "30vw",
+      Height: "80vh",
     },
-    { value: "0px" },
-    { value: "0px" },
-    { value: "2" },
-    { value: "30vw" },
-    { value: "80vh" },
-    { value: "00:00:02,000" },
-    { value: "00:00:04,000" },
-    { value: "Fadeout" },
-  ],
-  [
-    { value: "3" },
-    {
-      value:
-        "https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I",
+    start: "00:00:02,000",
+    end: "00:00:04,000",
+    PostTransition: "Fadeout",
+  },
+  {
+    SlideNo: "3",
+    Img: {
+      URL: "https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I",
+      left: "Img.left",
+      top: "Img.top",
+      Z: "Img.Z",
+      width: "30vw",
+      Height: "80vh",
     },
-    { value: "Img.left" },
-    { value: "Img.top" },
-    { value: "Img.Z" },
-    { value: "30vw" },
-    { value: "80vh" },
-    { value: "00:00:04,000" },
-    { value: "00:00:06,000" },
-    { value: "PostTransition" },
-  ],
-  [
-    { value: "4" },
-    {
-      value:
-        "https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
+    start: "00:00:04,000",
+    end: "00:00:06,000",
+    PostTransition: "PostTransition",
+  },
+  {
+    SlideNo: "4",
+    Img: {
+      URL: "https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
+      left: "0px",
+      top: "0px",
+      Z: "3px",
+      width: "30vw",
+      Height: "80vh",
     },
-    { value: "0px" },
-    { value: "0px" },
-    { value: "3px" },
-    { value: "30vw" },
-    { value: "80vh" },
-    { value: "00:00:06,000" },
-    { value: "00:00:08,000" },
-    { value: "Fadeout" },
-  ],
+    start: "00:00:06,000",
+    end: "00:00:08,000",
+    PostTransition: "Fadeout",
+  },
 ];
+
 export const srtLabel = ["index", "start", "end", "text"];
 
 export const defaultSrtjsonData = [

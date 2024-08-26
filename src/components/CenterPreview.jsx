@@ -17,12 +17,7 @@ const CenterPreview = ({ photos, setPhotos }) => {
       ...photos,
       {
         SlideNo: photos.length + 1,
-        ImgURL: "",
-        ImgLeft: "",
-        ImgTop: "",
-        ImgZ: "",
-        ImgWidth: "",
-        ImgHeight: "",
+        Img: { URL: "", left: "", top: "", Z: "", width: "", Height: "" },
         start: "",
         end: "",
         PostTransition: "",
@@ -38,7 +33,27 @@ const CenterPreview = ({ photos, setPhotos }) => {
 
   const handlePhotoChange = (field, value) => {
     const updatedPhotos = photos.map((photo, i) =>
-      i === currentPhotoIndex ? { ...photo, [field]: value } : photo
+      i === currentPhotoIndex
+        ? {
+            ...photo,
+            [field]: value,
+          }
+        : photo
+    );
+    setPhotos(updatedPhotos);
+  };
+
+  const handleImgChange = (field, value) => {
+    const updatedPhotos = photos.map((photo, i) =>
+      i === currentPhotoIndex
+        ? {
+            ...photo,
+            Img: {
+              ...photo.Img,
+              [field]: value,
+            },
+          }
+        : photo
     );
     setPhotos(updatedPhotos);
   };
@@ -55,14 +70,14 @@ const CenterPreview = ({ photos, setPhotos }) => {
             onClick={() => setCurrentPhotoIndex(index)}
           >
             <img
-              src={photo.ImgURL}
+              src={photo.Img.URL}
               alt={`Slide ${photo.SlideNo}`}
               style={{
-                left: photo.ImgLeft,
-                top: photo.ImgTop,
-                zIndex: photo.ImgZ,
-                width: photo.ImgWidth,
-                height: photo.ImgHeight,
+                left: photo.Img.left,
+                top: photo.Img.top,
+                zIndex: photo.Img.Z,
+                width: photo.Img.width,
+                height: photo.Img.Height,
               }}
             />
             <div className="edit-icon">
@@ -82,38 +97,38 @@ const CenterPreview = ({ photos, setPhotos }) => {
           <label>Img URL:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgURL || ""}
-            onChange={(e) => handlePhotoChange("ImgURL", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.URL || ""}
+            onChange={(e) => handleImgChange("URL", e.target.value)}
           />
           <label>Img Left:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgLeft || ""}
-            onChange={(e) => handlePhotoChange("ImgLeft", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.left || ""}
+            onChange={(e) => handleImgChange("left", e.target.value)}
           />
           <label>Img Top:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgTop || ""}
-            onChange={(e) => handlePhotoChange("ImgTop", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.top || ""}
+            onChange={(e) => handleImgChange("top", e.target.value)}
           />
           <label>Img Z:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgZ || ""}
-            onChange={(e) => handlePhotoChange("ImgZ", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.Z || ""}
+            onChange={(e) => handleImgChange("Z", e.target.value)}
           />
           <label>Img Width:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgWidth || ""}
-            onChange={(e) => handlePhotoChange("ImgWidth", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.width || ""}
+            onChange={(e) => handleImgChange("width", e.target.value)}
           />
           <label>Img Height:</label>
           <input
             type="text"
-            value={photos[currentPhotoIndex]?.ImgHeight || ""}
-            onChange={(e) => handlePhotoChange("ImgHeight", e.target.value)}
+            value={photos[currentPhotoIndex]?.Img?.Height || ""}
+            onChange={(e) => handleImgChange("Height", e.target.value)}
           />
           <label>Start:</label>
           <input
@@ -169,12 +184,14 @@ CenterPreview.propTypes = {
   photos: PropTypes.arrayOf(
     PropTypes.shape({
       SlideNo: PropTypes.number.isRequired,
-      ImgURL: PropTypes.string,
-      ImgLeft: PropTypes.string,
-      ImgTop: PropTypes.string,
-      ImgZ: PropTypes.string,
-      ImgWidth: PropTypes.string,
-      ImgHeight: PropTypes.string,
+      Img: PropTypes.shape({
+        URL: PropTypes.string,
+        left: PropTypes.string,
+        top: PropTypes.string,
+        Z: PropTypes.string,
+        width: PropTypes.string,
+        Height: PropTypes.string,
+      }),
       start: PropTypes.string,
       end: PropTypes.string,
       PostTransition: PropTypes.string,

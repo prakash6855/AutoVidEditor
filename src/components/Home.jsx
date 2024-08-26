@@ -21,10 +21,11 @@ const Home = () => {
 
   const handleSubmit = () => {
     const data = {
-      srtLabels,
-      photos,
-      cssOptions,
+      imageConfig: photos,
+      srtjson: srtLabels,
+      srtCss: cssOptions,
     };
+    console.log(data);
 
     // Navigate to /VideoPlayer and pass the data as state
     navigate("/VideoPlayer", { state: data });
