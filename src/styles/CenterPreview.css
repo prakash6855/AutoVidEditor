@@ -48,6 +48,7 @@
   right: 5px;
   font-size: 20px;
   color: #007bff;
+  z-index: 10;
 }
 
 .photo-config {
