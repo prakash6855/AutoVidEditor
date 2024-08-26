@@ -14,7 +14,7 @@ const RightSidebar = ({ cssOptions, setCssOptions }) => {
           <label className="option-label">{key}:</label>
           <input
             type="text"
-            value={cssOptions[key]}
+            value={cssOptions[key].value}
             onChange={(e) => handleCssChange(key, e.target.value)}
             className="option-input"
           />

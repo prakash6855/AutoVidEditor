@@ -1,7 +1,13 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/CenterPreview.css";
-import { FaPlus, FaTrash, FaEdit, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  FaPlus,
+  FaTrash,
+  FaEdit,
+  FaArrowLeft,
+  FaArrowRight,
+} from "react-icons/fa";
 
 const CenterPreview = ({ photos, setPhotos }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -43,7 +49,9 @@ const CenterPreview = ({ photos, setPhotos }) => {
         {photos.map((photo, index) => (
           <div
             key={index}
-            className={`photo-box ${currentPhotoIndex === index ? "active" : ""}`}
+            className={`photo-box ${
+              currentPhotoIndex === index ? "active" : ""
+            }`}
             onClick={() => setCurrentPhotoIndex(index)}
           >
             <img
@@ -69,73 +77,55 @@ const CenterPreview = ({ photos, setPhotos }) => {
           <input
             type="number"
             value={photos[currentPhotoIndex]?.SlideNo || ""}
-            onChange={(e) =>
-              handlePhotoChange("SlideNo", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("SlideNo", e.target.value)}
           />
           <label>Img URL:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgURL || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgURL", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgURL", e.target.value)}
           />
           <label>Img Left:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgLeft || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgLeft", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgLeft", e.target.value)}
           />
           <label>Img Top:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgTop || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgTop", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgTop", e.target.value)}
           />
           <label>Img Z:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgZ || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgZ", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgZ", e.target.value)}
           />
           <label>Img Width:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgWidth || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgWidth", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgWidth", e.target.value)}
           />
           <label>Img Height:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.ImgHeight || ""}
-            onChange={(e) =>
-              handlePhotoChange("ImgHeight", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("ImgHeight", e.target.value)}
           />
           <label>Start:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.start || ""}
-            onChange={(e) =>
-              handlePhotoChange("start", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("start", e.target.value)}
           />
           <label>End:</label>
           <input
             type="text"
             value={photos[currentPhotoIndex]?.end || ""}
-            onChange={(e) =>
-              handlePhotoChange("end", e.target.value)
-            }
+            onChange={(e) => handlePhotoChange("end", e.target.value)}
           />
           <label>Post Transition:</label>
           <input

@@ -75,78 +75,78 @@ export const defaultImageConfigData = [
 export const srtLabel = ["index", "start", "end", "text"];
 
 export const defaultSrtjsonData = [
-  [
-    { value: "0" },
-    { value: "00:00:00,160" },
-    { value: "00:00:00,480" },
-    { value: "[speaker 0] Ancient" },
-  ],
-  [
-    { value: "1" },
-    { value: "00:00:00,480" },
-    { value: "00:00:00,880" },
-    { value: "Rome" },
-  ],
-  [
-    { value: "2" },
-    { value: "00:00:00,880" },
-    { value: "00:00:01,380" },
-    { value: "fell," },
-  ],
-  [
-    { value: "3" },
-    { value: "00:00:01,440" },
-    { value: "00:00:01,940" },
-    { value: "barbarians" },
-  ],
-  [
-    { value: "4" },
-    { value: "00:00:02,240" },
-    { value: "00:00:02,740" },
-    { value: "invaded," },
-  ],
-  [
-    { value: "5" },
-    { value: "00:00:03,040" },
-    { value: "00:00:03,540" },
-    { value: "empires" },
-  ],
-  [
-    { value: "6" },
-    { value: "00:00:03,680" },
-    { value: "00:00:04,180" },
-    { value: "crumble," },
-  ],
-  [
-    { value: "7" },
-    { value: "00:00:04,480" },
-    { value: "00:00:04,800" },
-    { value: "dark" },
-  ],
-  [
-    { value: "8" },
-    { value: "00:00:04,800" },
-    { value: "00:00:05,280" },
-    { value: "ages" },
-  ],
-  [
-    { value: "9" },
-    { value: "00:00:05,280" },
-    { value: "00:00:05,760" },
-    { value: "descended" },
-  ],
-  [
-    { value: "10" },
-    { value: "00:00:05,760" },
-    { value: "00:00:06,080" },
-    { value: "upon" },
-  ],
-  [
-    { value: "11" },
-    { value: "00:00:06,080" },
-    { value: "00:00:06,580" },
-    { value: "Europe." },
-  ],
+  {
+    index: "0",
+    start: "00:00:00,160",
+    end: "00:00:00,480",
+    text: "[speaker 0] Ancient",
+  },
+  {
+    index: "1",
+    start: "00:00:00,480",
+    end: "00:00:00,880",
+    text: "Rome",
+  },
+  {
+    index: "2",
+    start: "00:00:00,880",
+    end: "00:00:01,380",
+    text: "fell,",
+  },
+  {
+    index: "3",
+    start: "00:00:01,440",
+    end: "00:00:01,940",
+    text: "barbarians",
+  },
+  {
+    index: "4",
+    start: "00:00:02,240",
+    end: "00:00:02,740",
+    text: "invaded,",
+  },
+  {
+    index: "5",
+    start: "00:00:03,040",
+    end: "00:00:03,540",
+    text: "empires",
+  },
+  {
+    index: "6",
+    start: "00:00:03,680",
+    end: "00:00:04,180",
+    text: "crumble,",
+  },
+  {
+    index: "7",
+    start: "00:00:04,480",
+    end: "00:00:04,800",
+    text: "dark",
+  },
+  {
+    index: "8",
+    start: "00:00:04,800",
+    end: "00:00:05,280",
+    text: "ages",
+  },
+  {
+    index: "9",
+    start: "00:00:05,280",
+    end: "00:00:05,760",
+    text: "descended",
+  },
+  {
+    index: "10",
+    start: "00:00:05,760",
+    end: "00:00:06,080",
+    text: "upon",
+  },
+  {
+    index: "11",
+    start: "00:00:06,080",
+    end: "00:00:06,580",
+    text: "Europe.",
+  },
 ];
 
 export const srtCssLabel = [

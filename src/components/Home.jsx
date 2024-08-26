@@ -5,30 +5,17 @@ import LeftSidebar from "./LeftSidebar";
 import CenterPreview from "./CenterPreview";
 import RightSidebar from "./RightSidebar";
 
-const App = () => {
-  const [srtLabels, setSrtLabels] = useState([
-    { index: 1, start: "", end: "", text: "" },
-  ]);
-  const [photos, setPhotos] = useState([]);
-  const [cssOptions, setCssOptions] = useState({
-    position: "",
-    bottom: "",
-    left: "",
-    transform: "",
-    backgroundColor: "",
-    color: "",
-    fontFamily: "",
-    fontWeight: "",
-    fontSize: "",
-    borderRadius: "",
-    textShadow: "",
-    borderStyle: "",
-    maxWidth: "",
-    whiteSpace: "",
-    lineHeight: "",
-    animation: "",
-    zIndex: "",
-  });
+// Import default values from csv.js
+import {
+  defaultImageConfigData,
+  defaultSrtjsonData,
+  defaultSrtCssData,
+} from "../data/csv"; // Adjust the path based on where your csv.js file is located
+
+const Home = () => {
+  const [srtLabels, setSrtLabels] = useState(defaultSrtjsonData);
+  const [photos, setPhotos] = useState(defaultImageConfigData);
+  const [cssOptions, setCssOptions] = useState(defaultSrtCssData[0]);
 
   const navigate = useNavigate();
 
@@ -57,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
