@@ -10,7 +10,6 @@ import {
   defaultImageConfigData,
   defaultSrtjsonData,
   defaultSrtCssData,
-  srtCssLabel,
 } from "../data/csv"; // Adjust the path based on where your csv.js file is located
 
 const Home = () => {
@@ -24,12 +23,7 @@ const Home = () => {
     const data = {
       imageConfig: photos,
       srtjson: srtLabels,
-      srtCss: srtCssLabel.reduce((acc, label, index) => {
-        if (cssOptions[index]) {
-          acc[label] = cssOptions[index].value;
-        }
-        return acc;
-      }, {}),
+      srtCss: cssOptions,
     };
     console.log(data);
 

@@ -4,7 +4,7 @@ import { srtCssLabel } from "../data/csv";
 
 const RightSidebar = ({ cssOptions, setCssOptions }) => {
   const handleCssChange = (field, value) => {
-    setCssOptions({ ...cssOptions, [field]: value });
+    setCssOptions({ ...cssOptions, [field]: { value: value } });
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import { srtCssLabel } from "../data/csv";
 
 const Subtitle = ({ subtitleIndex, word, slideshowData }) => {
   const cleanedWord = useMemo(() => {
@@ -8,13 +9,22 @@ const Subtitle = ({ subtitleIndex, word, slideshowData }) => {
     return word.replace(/\[speaker \d+\]\s*/g, "").trim();
   }, [word]);
 
+  const srtCssObject = useMemo(() => {
+    const srtCssObject = srtCssLabel.reduce((acc, label, index) => {
+      if (slideshowData?.srtCss[index]) {
+        acc[label] = slideshowData?.srtCss[index].value;
+      }
+      return acc;
+    }, {});
+    return srtCssObject;
+  }, [slideshowData]);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      style={slideshowData.srtCss}
+      style={srtCssObject}
     >
       <motion.span key={subtitleIndex}>{cleanedWord} </motion.span>
     </motion.div>
