@@ -81,7 +81,7 @@ const VideoPlayer = () => {
   }, [slideshowData, loading, subtitleIndex, parseTime]);
 
   return (
-    <div className="container">
+    <div className="video-container">
       {!loading ? (
         <>
           <div className="video-like-slideshow">

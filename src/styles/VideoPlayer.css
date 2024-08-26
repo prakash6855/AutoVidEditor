@@ -1,4 +1,5 @@
-.container {
+.video-container {
+  background-color: #151313;
   position: absolute;
   height: 97vh;
   display: flex;
