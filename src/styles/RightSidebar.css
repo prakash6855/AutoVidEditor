@@ -1,0 +1,45 @@
+::-webkit-scrollbar {
+  display: none;
+}
+.right-sidebar {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 25vw;
+  overflow-y: scroll;
+  border-right: 2px solid #ddd;
+}
+
+.right-sidebar h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.css-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option-label {
+  font-weight: bold;
+  color: #555;
+  min-width: 100px;
+}
+
+.option-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+
+}
+
+.option-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.2);
+}
