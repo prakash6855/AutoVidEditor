@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "../styles/RightSidebar.css";
+import { srtCssLabel } from "../data/csv";
 
 const RightSidebar = ({ cssOptions, setCssOptions }) => {
   const handleCssChange = (field, value) => {
@@ -11,7 +12,9 @@ const RightSidebar = ({ cssOptions, setCssOptions }) => {
       <h2>CSS Options</h2>
       {Object.keys(cssOptions).map((key) => (
         <div key={key} className="css-option">
-          <label className="option-label">{key}:</label>
+          <label className="option-label">
+            {key}:{srtCssLabel[key]}
+          </label>
           <input
             type="text"
             value={cssOptions[key].value}
