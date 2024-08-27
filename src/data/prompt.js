@@ -46,4 +46,5 @@ export const imageURL3 =
   "https://ideogram.ai/assets/progressive-image/balanced/response/8yXc_38IS5G2DgKCCLz9yg";
 
 export const imageURL4 =
-  "https://firefly.adobe.com/public/t2i?id=urn%3Aaaid%3Asc%3AAP%3A308d8de9-1c57-4e4e-be1c-8de5d8bced36&ff_channel=shared_link&ff_source=Text2Image";
+  "https://ideogram.ai/assets/progressive-image/balanced/response/_cKH4fzHQh2hKfvl9TXv9w";
+// "https://firefly.adobe.com/public/t2i?id=urn%3Aaaid%3Asc%3AAP%3A308d8de9-1c57-4e4e-be1c-8de5d8bced36&ff_channel=shared_link&ff_source=Text2Image";

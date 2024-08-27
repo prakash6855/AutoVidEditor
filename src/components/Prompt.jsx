@@ -6,8 +6,13 @@ import {
   DefaultImageGenTool,
   DefaultLLM,
   ImageGenPrompt,
+  imageURL1,
+  imageURL2,
+  imageURL3,
+  imageURL4,
   StoryPrompt,
 } from "../data/prompt";
+import { useNavigate } from "react-router-dom";
 
 const PromptForm = () => {
   const [channelName, setChannelName] = useState("History");
@@ -17,6 +22,7 @@ const PromptForm = () => {
   const [imageGenTool, setImageGenTool] = useState(DefaultImageGenTool);
   const [bgMusic, setBgMusic] = useState(DefaultBgMusicURL);
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Process form data
@@ -28,7 +34,9 @@ const PromptForm = () => {
       imageGenTool,
       bgMusic,
     });
-    
+    navigate("/Home", {
+      state: { imageURL: [imageURL1, imageURL2, imageURL3, imageURL4] },
+    });
   };
 
   return (

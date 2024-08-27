@@ -10,15 +10,15 @@ import Prompt from "./components/Prompt";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Prompt />,
   },
   {
     path: "/VideoPlayer",
     element: <VideoPlayer />,
   },
   {
-    path: "/Prompt",
-    element: <Prompt />,
+    path: "/Home",
+    element: <Home />,
   },
 ]);
 
