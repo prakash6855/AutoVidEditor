@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../styles/Prompt.css";
+
 import {
+  DefaultBgMusicURL,
   DefaultImageGenTool,
   DefaultLLM,
   ImageGenPrompt,
@@ -13,9 +15,9 @@ const PromptForm = () => {
   const [imageGenPrompt, setImageGenPrompt] = useState(ImageGenPrompt);
   const [llm, setLLM] = useState(DefaultLLM);
   const [imageGenTool, setImageGenTool] = useState(DefaultImageGenTool);
-  const [bgMusic, setBgMusic] = useState("");
+  const [bgMusic, setBgMusic] = useState(DefaultBgMusicURL);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Process form data
     console.log({
@@ -26,6 +28,7 @@ const PromptForm = () => {
       imageGenTool,
       bgMusic,
     });
+    
   };
 
   return (
