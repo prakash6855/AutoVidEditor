@@ -14,24 +14,24 @@
 .right-sidebar h2 {
   margin: 0 0 10px 0;
   font-size: 18px;
-  color: #333;
+  color: #110a31;
 }
 
 .css-option {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 60px;
 }
 
 .option-label {
   font-weight: bold;
-  color: #555;
+  color: #320808;
   min-width: 100px;
 }
 
 .option-input {
   flex: 1;
-  padding: 8px;
+  padding: 80px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 300px;
@@ -39,7 +39,7 @@
 }
 
 .option-input:focus {
-  border-color: #007bff;
+  border-color: #8ceaf1;
   outline: none;
   box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.2);
 }

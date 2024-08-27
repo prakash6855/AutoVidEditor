@@ -5,7 +5,11 @@
   overflow-y: auto;
   width: 25vw;
 }
-
+.left-sidebar h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #110a31;
+}
 .srt-label {
   display: flex;
   align-items: center;

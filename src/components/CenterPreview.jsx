@@ -60,6 +60,7 @@ const CenterPreview = ({ photos, setPhotos }) => {
 
   return (
     <div className="center-preview">
+                  <h2>Photos</h2>
       <div className="photo-gallery">
         {photos.map((photo, index) => (
           <div

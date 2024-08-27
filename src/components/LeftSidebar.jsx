@@ -22,6 +22,7 @@ const LeftSidebar = ({ srtLabels, setSrtLabels }) => {
 
   return (
     <div className="left-sidebar">
+            <h2>SRT CSS Options</h2>
       {srtLabels.map((label) => (
         <div key={label.index} className="srt-label">
           <div className="label-index">#{label.index}</div>
