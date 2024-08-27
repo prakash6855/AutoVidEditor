@@ -1,0 +1,53 @@
+.prompt-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.prompt-form div {
+  margin-bottom: 15px;
+}
+
+.prompt-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.prompt-form select,
+.prompt-form textarea,
+.prompt-form input[type="text"] {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's width */
+}
+
+.prompt-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.prompt-form button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  justify-content: center;
+}
+
+.prompt-form button:hover {
+  background-color: #45a049;
+}

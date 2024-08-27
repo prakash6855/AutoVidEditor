@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import VideoPlayer from "./components/VideoPlayer";
 import Home from "./components/Home";
+import Prompt from "./components/Prompt";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/VideoPlayer",
     element: <VideoPlayer />,
+  },
+  {
+    path: "/Prompt",
+    element: <Prompt />,
   },
 ]);
 
