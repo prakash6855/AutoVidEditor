@@ -25,7 +25,7 @@ const LeftSidebar = ({ srtLabels, setSrtLabels }) => {
             <h2>SRT CSS Options</h2>
       {srtLabels.map((label) => (
         <div key={label.index} className="srt-label">
-          <div className="label-index">#{label.index}</div>
+          <div className="label-index">{label.index}</div>
           <input
             type="text"
             placeholder="Start"

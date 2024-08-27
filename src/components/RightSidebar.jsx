@@ -13,7 +13,7 @@ const RightSidebar = ({ cssOptions, setCssOptions }) => {
       {Object.keys(cssOptions).map((key) => (
         <div key={key} className="css-option">
           <label className="option-label">
-            {key}:{srtCssLabel[key]}
+            {key}: {srtCssLabel[key]}
           </label>
           <input
             type="text"

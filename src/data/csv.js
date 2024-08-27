@@ -166,7 +166,6 @@ export const srtCssLabel = [
   "animation",
   "zIndex",
 ];
-
 export const defaultSrtCssData = [
   [
     { value: "absolute" },
