@@ -6,6 +6,7 @@ import "./index.css";
 import VideoPlayer from "./components/VideoPlayer";
 import Home from "./components/Home";
 import Prompt from "./components/Prompt";
+import Gaming from "./components/Gaming";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/Home",
     element: <Home />,
+  },
+  {
+    path: "/Gaming",
+    element: <Gaming />,
   },
 ]);
 

@@ -1,0 +1,41 @@
+.gaming-container {
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Hide overflow to show only visible cuboids */
+    position: relative;
+    background-color: blue; /* Background frame color */
+  }
+  
+  .cuboid-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 1s ease-in-out; /* Smooth transition effect */
+  }
+  
+  .cuboid {
+    width: 100px; /* Fixed width for all cuboids */
+    background-color: blue;
+    transform: rotateX(180deg); /* Invert the cuboid */
+    display: flex;
+    flex-direction: column; /* Stack image and name vertically */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 20px; /* Adjust spacing between cuboids */
+  }
+  
+  .cuboid-image {
+    width: 100%;
+    height: auto;
+    transform: rotateX(180deg); /* Re-invert the image to appear upright */
+    position: absolute;
+    top: 0;
+    border-bottom: 2px solid #fff; /* Optional: A border to separate the image from the cuboid */
+  }
+  
+  .gamer-name {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+  }
+  
