@@ -57,6 +57,7 @@ const Home = () => {
       imageConfig: photosUpdated,
       srtjson: srtLabels,
       srtCss: cssOptions,
+      download: true,
     };
     console.log(data);
     // Navigate to /VideoPlayer and pass the data as state

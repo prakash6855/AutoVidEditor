@@ -3,6 +3,7 @@ import "../styles/VideoPlayer.css";
 import { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import Subtitle from "./Subtitle";
+
 const VideoPlayer = () => {
   const location = useLocation();
   const slideshowData = useMemo(
@@ -11,6 +12,7 @@ const VideoPlayer = () => {
         imageConfig: [],
         srtjson: [],
         srtCss: [],
+        download: false,
       },
     [location.state?.slideshowData]
   );
@@ -79,6 +81,64 @@ const VideoPlayer = () => {
 
     return () => clearTimeout(timeout);
   }, [slideshowData, loading, subtitleIndex, parseTime]);
+  const recordScreen = async (slideshowElement, duration = 5000) => {
+    // Check if the browser supports the MediaRecorder API
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
+      console.error("Screen recording is not supported in this browser.");
+      return;
+    }
+
+    try {
+      // Request screen capture for the specific element
+      const stream = await navigator.mediaDevices.getDisplayMedia({
+        video: {
+          mediaSource: "screen",
+          cursor: "always",
+        },
+      });
+
+      const mediaRecorder = new MediaRecorder(stream);
+      const chunks = [];
+
+      // Store the recorded chunks
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          chunks.push(event.data);
+        }
+      };
+
+      // Stop recording after the specified duration
+      mediaRecorder.start();
+      setTimeout(() => {
+        mediaRecorder.stop();
+      }, duration);
+
+      // Once recording is stopped, save the video
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(chunks, { type: "video/webm" });
+        const url = URL.createObjectURL(blob);
+
+        // Create a download link and trigger download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "slideshow-recording.webm";
+        a.click();
+
+        // Revoke the object URL after download
+        URL.revokeObjectURL(url);
+      };
+    } catch (error) {
+      console.error("Error during screen recording:", error);
+    }
+  };
+
+  // Record the screen if download is true
+  useEffect(() => {
+    if (!loading && slideshowData.download) {
+      const slideshowElement = document.querySelector(".video-like-slideshow");
+      recordScreen(slideshowElement, 5000); // Record for 5 seconds
+    }
+  }, [loading, slideshowData.download]);
 
   return (
     <div className="video-container">
@@ -116,7 +176,6 @@ const VideoPlayer = () => {
               );
             })}
           </div>
-          {/* Render Subtitle outside the slide */}
           <Subtitle
             subtitleIndex={subtitleIndex}
             word={slideshowData.srtjson[subtitleIndex]?.text}
